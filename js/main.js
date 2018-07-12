@@ -11,3 +11,45 @@ const planetImages = {
   "Kamino": "https://vignette.wikia.nocookie.net/starwars/images/a/a9/Eaw_Kamino.jpg/revision/latest?cb=20090527045541",
   "Tatooine": "https://vignette.wikia.nocookie.net/starwars/images/b/b0/Tatooine_TPM.png/revision/latest?cb=20131019121937"
 }
+
+class GetStarWars{
+  constructor(images){
+    this.images = images
+  }
+
+  getInfo(searchTerm, num){
+    $.ajax({
+      url: "http https://swapi.co/api/planets",
+      dataType: "json",
+      success: (data)=>{
+        console.log(data)
+      this.info = data
+
+      this.setInfo([0,1,2,3,4,5])
+      },
+      error: (error)=>{
+        console.log("There was an error")
+      }
+    })
+  }
+  getMultiple(amount){
+    results.innerHTML = ``
+    if(amount <= 0){
+      return
+    }
+    //Create a for loop that loops the amount of times the value of the variable "amount" is worth. For example, if "amount" is equal to 6, the loop should go 6 times. Inside the loop call the getInfo method.
+    //getInfo("planets", 1)
+    //getInfo("planets", 2)
+    //getInfo("planets", 3)
+    //getInfo("planets", 4)
+    //getInfo("planets", 5)
+    //getInfo("planets", 6)
+  }
+  displayInfo(data){
+    results.innerHTML += `
+
+    `
+  }
+}
+
+const starwars = new GetStarWars()
